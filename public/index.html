@@ -24,7 +24,7 @@
             var chat_ui = new ChatApp.ChatUI(socket);
 
             socket.on("nicknames", function(data){
-                $("#users").html(data.nicknames + "-- Room: " + data.room + "\n");
+                $("#users").html("[Room: " + data.room +"; Users: "+ data.nicknames  + "]\n");
             });
 
             socket.on("newguest", function(data){
@@ -79,18 +79,13 @@
             });
         });
         </script>
-        <pre><div id="display">
-            <b>[Rooms: <a href="lobby">lobby</a>,
-                <a href="java">java</a>,
-                <a href="c">c</a>,
-                <a href="ruby">ruby</a>,
-                <a href="python">python</a>]</b>
-
-            <br>
-          <b>  Users in this room: <div id="users"></div></b>
+        <pre><div id="display"><b>[Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
+                >ruby</a>,<a href="python">python</a>]</b>
+          <b> <div id="users"></div></b>
         </div></pre>
 
         <form id="message-form">
+            <label>Message</label>
             <textarea id="input" name="message"></textarea>
             <input type="submit" value="Submit">
         </form>
