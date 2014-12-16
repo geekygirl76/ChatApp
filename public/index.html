@@ -53,13 +53,21 @@
                 }
             });
 
-            $("form").on("submit", function(event){
+            $("form#message-form").on("submit", function(event){
                 event.preventDefault();
 
                 var $form = $(event.currentTarget);
                 chat_ui.getMessage($form);
                 chat_ui.sendMessage();
                $(event.currentTarget).find("textarea#input").val("");
+            });
+
+            $("form#change-name").on("submit", function(event){
+                event.preventDefault();
+
+                var text = "/nick " + $(event.currentTarget).find("input#new-name").val();
+                $(event.currentTarget).find("input#new-name").val("");
+                chat_ui.chat.processCommand(text);
             });
 
             $("a").on("click", function(event){
@@ -82,9 +90,15 @@
           <b>  Users in this room: <div id="users"></div></b>
         </div></pre>
 
-        <form>
+        <form id="message-form">
             <textarea id="input" name="message"></textarea>
             <input type="submit" value="Submit">
+        </form>
+
+        <form id="change-name">
+            <label>New Nickname</label>
+            <input type="text" id="new-name">
+            <input type="submit" value="Change Name">
         </form>
     </body>
 </html>

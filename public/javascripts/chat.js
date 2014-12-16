@@ -12,6 +12,7 @@
 
     Chat.prototype.processCommand = function(text){
         if (text.slice(0,6) == "/nick "){
+
             this.socket.emit("nicknameChangeRequest",{
                 nickname: text.slice(6,text.length)
             });
