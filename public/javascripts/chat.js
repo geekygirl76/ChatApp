@@ -17,7 +17,7 @@
             });
         } else if(text.slice(0,6) == "/room "){
 
-            var room = text.slice(6,text.length-1);
+            var room = text.slice(6,text.length);
 
             if (Chat.rooms.indexOf(room) >-1){
                 this.socket.emit("roomChangeRequest", {room: room});

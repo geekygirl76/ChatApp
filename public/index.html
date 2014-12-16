@@ -61,10 +61,22 @@
                 chat_ui.sendMessage();
                $(event.currentTarget).find("textarea#input").val("");
             });
+
+            $("a").on("click", function(event){
+                event.preventDefault();
+                var a = $(event.currentTarget).attr("href");
+                var text = "/room " + a;
+
+                chat_ui.chat.processCommand(text);
+            });
         });
         </script>
         <pre><div id="display">
-            <b>[Rooms: lobby, java, c, ruby, python]</b>
+            <b>[Rooms: <a href="lobby">lobby</a>,
+                <a href="java">java</a>,
+                <a href="c">c</a>,
+                <a href="ruby">ruby</a>,
+                <a href="python">python</a>]</b>
 
             <br>
           <b>  Users in this room: <div id="users"></div></b>
