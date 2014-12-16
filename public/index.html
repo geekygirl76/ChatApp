@@ -24,7 +24,7 @@
             var chat_ui = new ChatApp.ChatUI(socket);
 
             socket.on("nicknames", function(data){
-                $("#users").html(data.nicknames + "\n");
+                $("#users").html(data.nicknames + "-- Room: " + data.room + "\n");
             });
 
             socket.on("newguest", function(data){
