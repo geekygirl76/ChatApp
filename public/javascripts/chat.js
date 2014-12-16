@@ -13,7 +13,7 @@
             this.socket.emit("nicknameChangeRequest",{
                 nickname: text.slice(6,text.length)
             });
-        } else {
+        }  else {
             $("#display").append("<pre>[Not valid command]</pre>");
         }
     };
