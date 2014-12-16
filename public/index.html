@@ -24,7 +24,7 @@
             var chat_ui = new ChatApp.ChatUI(socket);
 
             socket.on("nicknames", function(data){
-                $("#users").html(data.nicknames + "\n");
+                $("#users").html("[Room: " + data.room +"; Users: "+ data.nicknames  + "]\n");
             });
 
             socket.on("newguest", function(data){
@@ -53,7 +53,7 @@
                 }
             });
 
-            $("form").on("submit", function(event){
+            $("form#message-form").on("submit", function(event){
                 event.preventDefault();
 
                 var $form = $(event.currentTarget);
@@ -61,15 +61,39 @@
                 chat_ui.sendMessage();
                $(event.currentTarget).find("textarea#input").val("");
             });
+
+            $("form#change-name").on("submit", function(event){
+                event.preventDefault();
+
+                var text = "/nick " + $(event.currentTarget).find("input#new-name").val();
+                $(event.currentTarget).find("input#new-name").val("");
+                chat_ui.chat.processCommand(text);
+            });
+
+            $("a").on("click", function(event){
+                event.preventDefault();
+                var a = $(event.currentTarget).attr("href");
+                var text = "/room " + a;
+
+                chat_ui.chat.processCommand(text);
+            });
         });
         </script>
-        <pre><div id="display">
-          <b>  Online Users: <div id="users"></div></b>
+        <pre><div id="display"><b>[Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
+                >ruby</a>,<a href="python">python</a>]</b>
+          <b> <div id="users"></div></b>
         </div></pre>
 
-        <form>
+        <form id="message-form">
+            <label>Message</label>
             <textarea id="input" name="message"></textarea>
             <input type="submit" value="Submit">
+        </form>
+
+        <form id="change-name">
+            <label>New Nickname</label>
+            <input type="text" id="new-name">
+            <input type="submit" value="Change Name">
         </form>
     </body>
 </html>
