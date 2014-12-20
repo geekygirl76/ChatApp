@@ -32,8 +32,8 @@
     };
 
     Chat.prototype.sendMessage = function(text){
-
-        this.socket.emit("message", {message: text});
+        console.log(text);
+        this.socket.emit("message", {message: text.form, receiver:text.receiver});
 
     }
 })();

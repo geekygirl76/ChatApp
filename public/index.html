@@ -69,26 +69,32 @@
             $("form#message-form").on("submit", function(event){
                 event.preventDefault();
 
-
-                if ($("input#private").is(":checked")){
-
-                } else {
-
-                }
-
-
                 var $form = $(event.currentTarget);
-                chat_ui.getMessage($form);
+                if ($("input#private").is(":checked")){
+                    var receiver = $form.find("input#receiver").val();
+
+                };
+
+                chat_ui.getMessage({form: $form, receiver: receiver});
                 chat_ui.sendMessage();
                $(event.currentTarget).find("textarea#input").val("");
+
             });
 
             $("form#message-form").find("textarea").on("keyup", function(event){
                 if (event.keyCode === 13){
-                    var $form =  $("form#message-form");
-                    chat_ui.getMessage($form);
+
+                    var $form = $("form#message-form");
+                    if ($("input#private").is(":checked")){
+                        var receiver = $form.find("input#receiver").val();
+
+                    };
+
+                    chat_ui.getMessage({form: $form, receiver: receiver});
                     chat_ui.sendMessage();
-                   $(event.currentTarget).val("");
+                   $("form#message-form").find("textarea#input").val("");
+                   $("form#message-form").find("input#receiver").val("");
+                   $("input#private").prop("checked",false) ;
                 }
             });
 
@@ -120,12 +126,22 @@
 
         <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
         <form id="message-form">
+
+            <input id="private" type="checkbox" >Private?
+            <label>To:</label>
+
+            <input type="text" id="receiver">
+            <br>
             <label>Message</label>
             <textarea id="input" name="message"></textarea>
             <br>
-            <input id="private" type="checkbox" >Private?<br>
-
             <input type="submit" value="Submit">
+            <br>
+
+
+
+
+
         </form>
 
         <form id="change-name">

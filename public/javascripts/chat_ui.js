@@ -8,8 +8,12 @@
         this.chat = new ChatApp.Chat(socket);
     };
 
-    ChatUI.prototype.getMessage = function($form){
-        this.input =  $form.find("textarea#input").val()+ "\n";
+    ChatUI.prototype.getMessage = function(input){
+        this.input= {};
+        this.input.form=  input.form.find("textarea#input").val()+ "\n";
+
+        this.input.receiver = input.receiver;
+
     };
 
     ChatUI.prototype.sendMessage = function(){
