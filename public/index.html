@@ -12,6 +12,11 @@
             float: right;
         }
 
+        b#room-list{
+            padding: 2px;
+            background: lightgrey;
+        }
+
         </style>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="/socket.io/socket.io.js"></script>
@@ -27,6 +32,10 @@
         $(function(){
 
             var chat_ui = new ChatApp.ChatUI(socket);
+
+
+
+
 
             socket.on("nicknames", function(data){
                 $("#users").html("[Room: " + data.room +"; Users: "+ data.nicknames  + "]\n");
@@ -107,9 +116,12 @@
                 chat_ui.chat.processCommand(text);
             });
 
+            //each room link have a button: join or leave, when click, send related command, change chat.js processCommand accordingly
+
             $("a").on("click", function(event){
                 event.preventDefault();
                 var a = $(event.currentTarget).attr("href");
+                console.log(a.length);
                 var text = "/room " + a;
 
                 chat_ui.chat.processCommand(text);
@@ -118,8 +130,8 @@
         </script>
         <div class="row">
         <div class="right col-md-6 col-lg-6 col-sm-6 col-xs-6">
-        <pre><div id="display"><b>[Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
-                >ruby</a>,<a href="python">python</a>]</b>
+        <pre><div id="display"><b id="room-list">Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
+                >ruby</a>,<a href="python">python</a></b>
           <b> <div id="users"></div><div id="name"> </div></b>
         </div></pre>
         </div>
