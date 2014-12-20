@@ -1,14 +1,19 @@
 <html>
     <head>
+        <title>My Chat App</title>
         <style>
-        #display {
 
-            padding: 30px;
-            height: 90%;
-            width: 100%;
-            border: 1px solid black;
+
+        .left{
+           float: left;
         }
+
+        .right {
+            float: right;
+        }
+
         </style>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="/socket.io/socket.io.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="/javascripts/chat.js"></script>
@@ -37,14 +42,22 @@
 
             socket.on("message", function(data){
                 $space = $("#display");
-                chat_ui.display($space, data.nickname + " : " + data.message);
+                if(data.nickname){
+                    chat_ui.display($space, data.nickname + ": "  + data.message);
+                } else {
+                    chat_ui.display($space,  data.message);
+                }
+
 
             });
 
-
+            socket.on("newname", function(data){
+                $("#name").text("Your name: " + data.newname );
+            });
 
              socket.on("nicknameChangeResult",function(data){
                 if(data.success){
+
                     $("#display").append("<pre>"+"("+ "Nickname change success!"+ ")"+ "\n"+ "</pre>");
                     return;
                 } else {
@@ -56,14 +69,32 @@
             $("form#message-form").on("submit", function(event){
                 event.preventDefault();
 
+
+                if ($("input#private").is(":checked")){
+
+                } else {
+
+                }
+
+
                 var $form = $(event.currentTarget);
                 chat_ui.getMessage($form);
                 chat_ui.sendMessage();
                $(event.currentTarget).find("textarea#input").val("");
             });
 
+            $("form#message-form").find("textarea").on("keyup", function(event){
+                if (event.keyCode === 13){
+                    var $form =  $("form#message-form");
+                    chat_ui.getMessage($form);
+                    chat_ui.sendMessage();
+                   $(event.currentTarget).val("");
+                }
+            });
+
             $("form#change-name").on("submit", function(event){
                 event.preventDefault();
+
 
                 var text = "/nick " + $(event.currentTarget).find("input#new-name").val();
                 $(event.currentTarget).find("input#new-name").val("");
@@ -79,14 +110,21 @@
             });
         });
         </script>
+        <div class="row">
+        <div class="right col-md-6 col-lg-6 col-sm-6 col-xs-6">
         <pre><div id="display"><b>[Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
                 >ruby</a>,<a href="python">python</a>]</b>
-          <b> <div id="users"></div></b>
+          <b> <div id="users"></div><div id="name"> </div></b>
         </div></pre>
+        </div>
 
+        <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
         <form id="message-form">
             <label>Message</label>
             <textarea id="input" name="message"></textarea>
+            <br>
+            <input id="private" type="checkbox" >Private?<br>
+
             <input type="submit" value="Submit">
         </form>
 
@@ -95,5 +133,7 @@
             <input type="text" id="new-name">
             <input type="submit" value="Change Name">
         </form>
+        </div>
+        </div>
     </body>
 </html>
