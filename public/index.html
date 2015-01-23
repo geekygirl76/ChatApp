@@ -19,6 +19,11 @@
         var socket = io.connect();
 
         $(function(){
+            var $overlay = $("<div id='overlay'><h1 id='welcome'>Enter the lobby</h1></div>");
+            $("body").append($overlay);
+            $("#welcome").click(function(event){
+                $overlay.css({opacity: 0.0});
+            });
 
             var chat_ui = new ChatApp.ChatUI(socket);
 
