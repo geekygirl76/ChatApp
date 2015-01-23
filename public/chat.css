@@ -66,17 +66,28 @@ body{
     padding: 20px;
 }
 .row{
-    background: #fff;
+    background: #000;
     height: 100%;
 }
 
 .left{
-    padding: 20px;
+    padding:10px 0;
+    background: #F2F2F2;
    float: right;
+   width:30%;
+   height: 100%;
+   border:1px solid grey;
+   border-radius: 10px;
 }
 
 .right {
-    padding: 20px;
+    width:70%;
+    padding:10px 0;
+    background: #F2F2F2;
+    border:1px solid grey;
+    border-radius: 10px;
+
+    height: 100%;
     float: left;
 }
 
