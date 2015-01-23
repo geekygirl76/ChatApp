@@ -44,6 +44,27 @@ ul{
     cursor: pointer;
 }
 
+body{
+    text-align: center;
+    background-color: #000;
+    margin: 8px;
+    font-family: Verdana, Arial, Helvetica, Sans-serif;
+}
+#window{
+
+    border:3px solid grey;
+    width: 962px;
+    height: 623px;
+    background: #A7ACB3;
+    padding: 20px;
+    text-align: center;
+}
+#inner-window{
+    width: 90%;
+    height: 80%;
+    background: white;
+}
+
 .left{
    float: left;
 }
