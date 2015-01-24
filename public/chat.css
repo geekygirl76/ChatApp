@@ -3,7 +3,7 @@ html, body, div, form,  h1, h2, h3, h4, h5, h6, p, b, strong{
     margin: 0;
     padding: 0;
     font: inherit;
-
+    color: grey;
 
 }
 
@@ -243,4 +243,16 @@ a:hover{
     overflow-y: hidden;
     overflow-x:scroll;
     color:#FA58F4;
+}
+#message-form> textarea#input{
+    width:100%;
+    height:60%;
+    border-radius:10px;
+    padding:10px;
+}
+input#send{
+    background: black;
+    color:white;
+    border-radius:5px;
+    font-weight:bold;
 }
