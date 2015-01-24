@@ -3,6 +3,7 @@ html, body, div, form,  h1, h2, h3, h4, h5, h6, p, b, strong{
     margin: 0;
     padding: 0;
     font: inherit;
+    font-weight: bold;
 
 }
 
@@ -15,7 +16,29 @@ html, body, div, form,  h1, h2, h3, h4, h5, h6, p, b, strong{
 ul{
     list-style: none;
 }
+.new-guest{
+    color: #FAAC58;
+}
+#users{
+    width:50%;
+    height:20%;
+    overflow-x:scroll;
+    float: left;
 
+}
+#name{
+    width:50%;
+    height: 20%;
+    margin-top:0;
+    padding-top:0;
+    float:right;
+
+}
+#room-list{
+    clear:both;
+    display: block;
+    content:"";
+}
 #overlay{
     position: fixed;
     top:0;

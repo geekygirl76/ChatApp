@@ -32,11 +32,11 @@
 
 
             socket.on("nicknames", function(data){
-                $("#users").html("[Room: " + data.room +"; Users: "+ data.nicknames  + "]\n");
+                $("#users").html("<p>Room: " + data.room +"</p><p> Users: "+ data.nicknames  + "</p>\n");
             });
 
             socket.on("newguest", function(data){
-                $("#display").append("<pre>" + data.newguest + "</pre>");
+                $("#display").append("<pre class='new-guest'>" + data.newguest + "</pre>");
             });
 
             socket.on("leftmessage", function(data){
