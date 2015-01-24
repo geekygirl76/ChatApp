@@ -81,6 +81,7 @@ body{
 }
 
 .right {
+    overflow-y: scroll;
     width:70%;
     padding:10px 0;
     background: #F2F2F2;

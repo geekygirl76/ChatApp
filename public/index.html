@@ -22,7 +22,7 @@
             var $overlay = $("<div id='overlay'><h1 id='welcome'>Enter the lobby</h1></div>");
             $("body").append($overlay);
             $("#welcome").click(function(event){
-                $overlay.css({opacity: 0.0});
+                $overlay.remove();
             });
 
             var chat_ui = new ChatApp.ChatUI(socket);
@@ -133,6 +133,7 @@
         </div>
 
         <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
+
         <form id="message-form">
 
             <input id="private" type="checkbox" >Private?
