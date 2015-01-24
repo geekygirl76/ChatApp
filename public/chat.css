@@ -132,6 +132,12 @@ form{
 b#room-list{
     padding: 2px;
     background: lightgrey;
+    margin-bottom:90px;
+}
+b#room-list p {
+    font-size:15px;
+    font-weight: bold;
+    color: green;
 }
 .top{
     font-size:11px;
@@ -180,4 +186,18 @@ b#room-list{
     background:#F79F81;
     font-weight: bold;
     color: grey;
+}
+a{
+    font-weight:300;
+    font-size:11;
+    padding:4px;
+    background:green;
+    color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+
+}
+a:hover{
+    color: darkgrey;
+    text-decoration: none;
 }
