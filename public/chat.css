@@ -135,7 +135,7 @@ body{
 #display{
     margin:0;
     height: 60%;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 form{

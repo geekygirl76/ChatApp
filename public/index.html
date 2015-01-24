@@ -64,9 +64,11 @@
                 if(data.success){
 
                     $(".bottom").append("<pre class='name-change'>"+"("+ "Nickname change success!"+ ")"+ "\n"+ "</pre>");
+                    $("#display").animate({scrollTop: $("#display").innerHeight()}, 'fast');
                     return;
                 } else {
                     $(".bottom").append("<pre class='name-change'>"+ "("+ data.message+ ")" + "\n"+ "</pre>");
+                    $("#display").animate({scrollTop: $("#display").innerHeight()}, 'fast');
                     return;
                 }
             });
