@@ -84,6 +84,12 @@
 
             });
 
+            $("form#message-form").find("input#private").on("click", function(){
+                if ($("#receiver").val().length >0){
+                    $("#receiver").val("");
+                }
+            });
+
             $("form#message-form").find("textarea").on("keyup", function(event){
                 if (event.keyCode === 13){
 
@@ -91,13 +97,15 @@
                     if ($("input#private").is(":checked")){
                         var receiver = $form.find("input#receiver").val();
 
+                    } else{
+
                     };
 
                     chat_ui.getMessage({form: $form, receiver: receiver});
                     chat_ui.sendMessage();
                    $("form#message-form").find("textarea#input").val("");
-                   $("form#message-form").find("input#receiver").val("");
-                   $("input#private").prop("checked",false) ;
+                   // $("form#message-form").find("input#receiver").val("");
+//                    $("input#private").prop("checked",false) ;
                 }
             });
 
