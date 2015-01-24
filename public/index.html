@@ -22,7 +22,7 @@
             var $overlay = $("<div id='overlay'><h1 id='welcome'>Enter the lobby</h1></div>");
             $("body").append($overlay);
             $("#welcome").click(function(event){
-                $overlay.css({opacity: 0.0});
+                $overlay.remove();
             });
 
             var chat_ui = new ChatApp.ChatUI(socket);
@@ -125,6 +125,7 @@
         <div id="window">
         <div id="inner-window">
         <div class="row">
+
         <div class="right col-md-6 col-lg-6 col-sm-6 col-xs-6">
         <pre><div id="display"><b id="room-list">Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
                 >ruby</a>,<a href="python">python</a></b>

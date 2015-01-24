@@ -68,6 +68,7 @@ body{
 .row{
     background: #000;
     height: 100%;
+
 }
 
 .left{
@@ -80,7 +81,9 @@ body{
    border-radius: 10px;
 }
 
+
 .right {
+    overflow-y: scroll;
     width:70%;
     padding:10px 0;
     background: #F2F2F2;
@@ -90,7 +93,9 @@ body{
     height: 100%;
     float: left;
 }
-
+form{
+    border:none;
+}
 b#room-list{
     padding: 2px;
     background: lightgrey;
