@@ -46,9 +46,9 @@
             socket.on("message", function(data){
                 $space = $(".bottom");
                 if(data.nickname){
-                    chat_ui.display($space, data.nickname + ": "  + data.message);
+                    chat_ui.display($space, "<b class='my-name'>"+data.nickname + "</b>: "  + "<b class='my-message'>"+data.message+"</b>");
                 } else {
-                    chat_ui.display($space,  data.message);
+                    chat_ui.display($space,  "<b class='announce-name-change'>"+data.message + "</b>");
                 }
 
 
