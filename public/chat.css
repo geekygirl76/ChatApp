@@ -17,7 +17,9 @@ ul{
     list-style: none;
 }
 .new-guest{
-    color: #FAAC58;
+    background: #FAAC58;
+    font-weight: bold;
+    color: grey;
 }
 #users{
     width:100%;
@@ -160,4 +162,9 @@ b#room-list{
 }
 #display{
     text-align: left;
+}
+.name-change{
+    background:#F79F81;
+    font-weight: bold;
+    color: grey;
 }

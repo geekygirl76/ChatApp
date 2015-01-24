@@ -61,10 +61,10 @@
              socket.on("nicknameChangeResult",function(data){
                 if(data.success){
 
-                    $(".bottom").append("<pre>"+"("+ "Nickname change success!"+ ")"+ "\n"+ "</pre>");
+                    $(".bottom").append("<pre class='name-change'>"+"("+ "Nickname change success!"+ ")"+ "\n"+ "</pre>");
                     return;
                 } else {
-                    $(".bottom").append("<pre>"+ "("+ data.message+ ")" + "\n"+ "</pre>");
+                    $(".bottom").append("<pre class='name-change'>"+ "("+ data.message+ ")" + "\n"+ "</pre>");
                     return;
                 }
             });
