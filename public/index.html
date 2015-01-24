@@ -32,19 +32,19 @@
 
 
             socket.on("nicknames", function(data){
-                $("#users").html("<p>Room: " + data.room +"</p><p> Users: "+ data.nicknames  + "</p>\n");
+                $("#users").html("<p class='room'>Room: " + data.room +"</p><p class='nicknames'> Users: "+ data.nicknames  + "</p>\n");
             });
 
             socket.on("newguest", function(data){
-                $("#display").append("<pre class='new-guest'>" + data.newguest + "</pre>");
+                $(".bottom").append("<pre class='new-guest'>" + data.newguest + "</pre>");
             });
 
             socket.on("leftmessage", function(data){
-                $("#display").append("<pre>" + data.message + "</pre>");
+                $(".bottom").append("<pre class='new-guest'>" + data.message + "</pre>");
             });
 
             socket.on("message", function(data){
-                $space = $("#display");
+                $space = $(".bottom");
                 if(data.nickname){
                     chat_ui.display($space, data.nickname + ": "  + data.message);
                 } else {
@@ -61,10 +61,10 @@
              socket.on("nicknameChangeResult",function(data){
                 if(data.success){
 
-                    $("#display").append("<pre>"+"("+ "Nickname change success!"+ ")"+ "\n"+ "</pre>");
+                    $(".bottom").append("<pre>"+"("+ "Nickname change success!"+ ")"+ "\n"+ "</pre>");
                     return;
                 } else {
-                    $("#display").append("<pre>"+ "("+ data.message+ ")" + "\n"+ "</pre>");
+                    $(".bottom").append("<pre>"+ "("+ data.message+ ")" + "\n"+ "</pre>");
                     return;
                 }
             });
@@ -127,14 +127,21 @@
         <div class="row">
 
         <div class="right col-md-6 col-lg-6 col-sm-6 col-xs-6">
-        <pre><div id="display"><b id="room-list">Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
-                >ruby</a>,<a href="python">python</a></b>
-          <b> <div id="users"></div><div id="name"> </div></b>
-        </div></pre>
+        <pre><div id="display">
+
+           <div class="bottom"></div>
+           </div>
+        </pre>
         </div>
 
         <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
+             <div class="top">
 
+             <b id="room-list">Room List: <a href="lobby">lobby</a>,<a href="java">java</a>,<a href="c">c</a>,<a href="ruby"
+                 >ruby</a>,<a href="python">python</a>
+             </b>
+            <b> <div id="users"></div><div id="name"> </div></b>
+            </div>
         <form id="message-form">
 
             <input id="private" type="checkbox" >Private?

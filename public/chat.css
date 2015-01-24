@@ -3,7 +3,7 @@ html, body, div, form,  h1, h2, h3, h4, h5, h6, p, b, strong{
     margin: 0;
     padding: 0;
     font: inherit;
-    font-weight: bold;
+
 
 }
 
@@ -20,25 +20,31 @@ ul{
     color: #FAAC58;
 }
 #users{
-    width:50%;
-    height:20%;
-    overflow-x:scroll;
-    float: left;
+    width:100%;
+
+    overflow: hidden;
+    padding: 0;
+    white-space: normal;
 
 }
 #name{
-    width:50%;
-    height: 20%;
+    overflow:hidden;
+    width:100%;
+    white-space: normal;
     margin-top:0;
     padding-top:0;
-    float:right;
 
+    padding: 0;
 }
 #room-list{
     clear:both;
     display: block;
     content:"";
 }
+#display{
+    position:relative;
+}
+
 #overlay{
     position: fixed;
     top:0;
@@ -72,6 +78,7 @@ body{
     background-color: #000;
     margin: 8px;
     font-family: Verdana, Arial, Helvetica, Sans-serif;
+
 }
 #window{
 
@@ -96,7 +103,7 @@ body{
 
 .left{
     padding:10px 0;
-    background: #F2F2F2;
+    background: #D3D7DC;
    float: right;
    width:30%;
    height: 100%;
@@ -109,17 +116,48 @@ body{
     overflow-y: scroll;
     width:70%;
     padding:10px 0;
-    background: #F2F2F2;
+    background: #FFFEE2;;
     border:1px solid grey;
     border-radius: 10px;
 
     height: 100%;
     float: left;
 }
+
 form{
     border:none;
 }
 b#room-list{
     padding: 2px;
     background: lightgrey;
+}
+.top{
+    font-size:11px;
+    font-weight: 100;
+    background: lightgrey;
+    padding:0;
+    margin:20px;
+    padding:10px;
+    border-radius: 10px;
+
+}
+.bottom{
+    z-index:-1;
+
+}
+#message-form{
+    font-weight: 100;
+    font-size: 11px;
+}
+.room{
+    color:#FE642E;
+}
+.nicknames{
+    color:#FA58F4;
+}
+#name{
+    color:#31B404;
+}
+#display{
+    text-align: left;
 }

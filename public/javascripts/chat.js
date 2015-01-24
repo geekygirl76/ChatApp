@@ -23,7 +23,7 @@
             if (Chat.rooms.indexOf(room) >-1){
                 this.socket.emit("roomChangeRequest", {room: room, choice:"join"});
             } else {
-                 $("#display").append("<pre>[Not valid room name!]</pre>");
+                 $("#display").append("<pre>Not valid room name!</pre>");
             }
 
         } else if(text.slice(0,7) == "/leave "){
