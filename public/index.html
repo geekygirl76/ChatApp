@@ -32,7 +32,7 @@
 
 
             socket.on("nicknames", function(data){
-                $("#users").html("<p class='room'>Room: " + data.room +"</p><p class='nicknames'> Users: "+ data.nicknames  + "</p>\n");
+                $("#users").html("<p class='room'>Room: " + data.room +"</p><p class='nicknames'> Users: <p class='nickname-lists'>"+ data.nicknames  + "</p></p>\n");
             });
 
             socket.on("newguest", function(data){
@@ -132,6 +132,20 @@
            <div class="bottom"></div>
            </div>
         </pre>
+
+        <form id="message-form">
+            <p><input id="private" type="checkbox" >Private?</p>
+            <label>To:</label>
+
+            <input type="text" id="receiver">
+            <br>
+            <label>Message</label>
+            <textarea id="input" name="message"></textarea>
+            <br>
+            <input type="submit" value="Submit">
+            <br>
+        </form>
+
         </div>
 
         <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
@@ -142,29 +156,14 @@
              </b>
             <b> <div id="users"></div><div id="name"> </div></b>
             </div>
-        <form id="message-form">
-
-            <input id="private" type="checkbox" >Private?
-            <label>To:</label>
-
-            <input type="text" id="receiver">
-            <br>
-            <label>Message</label>
-            <textarea id="input" name="message"></textarea>
-            <br>
-            <input type="submit" value="Submit">
-            <br>
 
 
 
-
-
-        </form>
 
         <form id="change-name">
             <label>New Nickname</label>
             <input type="text" id="new-name">
-            <input type="submit" value="Change Name">
+            <input type="submit" class='btn btn-info btn-sm btn-block' value="Change Name">
         </form>
         </div>
         </div>

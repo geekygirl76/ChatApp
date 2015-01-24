@@ -24,11 +24,12 @@ ul{
 #users{
     width:100%;
 
-    overflow: hidden;
+
     padding: 0;
     white-space: normal;
 
 }
+
 #name{
     overflow:hidden;
     width:100%;
@@ -111,11 +112,12 @@ body{
    height: 100%;
    border:1px solid grey;
    border-radius: 10px;
+   overflow: scroll;
 }
 
 
 .right {
-    overflow-y: scroll;
+
     width:70%;
     padding:10px 0;
     background: #FFFEE2;;
@@ -125,6 +127,15 @@ body{
     height: 100%;
     float: left;
 }
+.right>pre{
+    border:0;
+    margin:0;
+    padding: 0;
+}
+#display{
+    margin:0;
+    height: 60%;
+}
 
 form{
     border:none;
@@ -132,7 +143,7 @@ form{
 b#room-list{
     padding: 2px;
     background: lightgrey;
-    margin-bottom:90px;
+    margin-bottom:50px;
 }
 b#room-list p {
     font-size:15px;
@@ -140,7 +151,7 @@ b#room-list p {
     color: green;
 }
 .top{
-    font-size:11px;
+    font-size:12px;
     font-weight: 100;
     background: lightgrey;
     padding:0;
@@ -155,7 +166,7 @@ b#room-list p {
 }
 #message-form{
     font-weight: 100;
-    font-size: 11px;
+    font-size: 12px;
 }
 .room{
     color:#FE642E;
@@ -189,7 +200,7 @@ b#room-list p {
 }
 a{
     font-weight:300;
-    font-size:11;
+    font-size:12px;
     padding:4px;
     background:green;
     color: white;
@@ -200,4 +211,36 @@ a{
 a:hover{
     color: darkgrey;
     text-decoration: none;
+}
+#change-name{
+    border: 3px solid grey;
+    padding:8px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#change-name>label{
+    color: grey;
+}
+.btn-info{
+    font-size:12px;
+}
+#new-name{
+    width:100%;
+    padding:5px;
+    margin-bottom:5px;
+}
+#message-form{
+
+    padding:8px;
+    border-radius: 5px;
+    font-size: 12px;
+    height:30%;
+}
+#private{
+
+}
+.nickname-lists{
+    overflow-y: hidden;
+    overflow-x:scroll;
+    color:#FA58F4;
 }
