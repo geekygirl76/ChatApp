@@ -49,7 +49,9 @@
                     chat_ui.display($space, "<b class='my-name'>"+data.nickname + "</b>: "  + "<b class='my-message'>"+data.message+"</b>");
                 } else {
                     chat_ui.display($space,  "<b class='announce-name-change'>"+data.message + "</b>");
-                }
+                };
+
+                $("#display").animate({scrollTop: $("#display").innerHeight()}, 'fast');
 
 
             });

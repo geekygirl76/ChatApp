@@ -135,6 +135,7 @@ body{
 #display{
     margin:0;
     height: 60%;
+    overflow: scroll;
 }
 
 form{
@@ -179,6 +180,7 @@ b#room-list p {
 }
 #display{
     text-align: left;
+    padding:20px;
 }
 .name-change{
     background:#F79F81;
@@ -255,4 +257,7 @@ input#send{
     color:white;
     border-radius:5px;
     font-weight:bold;
+}
+input#receiver{
+    padding:1px 10px;
 }
