@@ -27,8 +27,11 @@
     };
 
     ChatUI.prototype.display = function($space, message){
-        $space.append(message);
 
+        $space.append(message);
+        $("#display").animate({scrollTop: $("#display")[0].scrollHeight-$("#display").innerHeight()}, 'fast');
+        // console.log($("#display").scrollHeight);
     };
+
 })();
 

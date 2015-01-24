@@ -84,7 +84,7 @@ body{
 
 }
 #window{
-
+    border-radius:5px;
     border:3px solid grey;
     width: 962px;
     height: 623px;
@@ -97,6 +97,7 @@ body{
     height: 80%;
     background: #000;
     padding: 20px;
+    border-radius: 5px;
 }
 .row{
     background: #000;
@@ -112,7 +113,7 @@ body{
    height: 100%;
    border:1px solid grey;
    border-radius: 10px;
-   overflow: scroll;
+
 }
 
 
